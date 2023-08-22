@@ -25,8 +25,13 @@ def embed_builder(response: dict):
     try:
         course = Course(response)
         embed = discord.Embed(title=course.title, description=course.description)
-        embed.add_field(name="Prerequisites", value=course.prerequisites)
-        embed.add_field(name="Corequisites", value=course.corequisites)
+
+        no_reqs = course.prerequisites is None and course.corequisites is None
+
+        embed.add_field(
+            name="Prerequisites", value=course.prerequisites, inline=no_reqs
+        )
+        embed.add_field(name="Corequisites", value=course.corequisites, inline=no_reqs)
         embed.color = discord.Color.green()
         return embed
     except CourseNotFound as e:
