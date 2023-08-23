@@ -1,4 +1,6 @@
 ---
+import SearchBar from "../components/SearchBar.astro";
+
 interface Props {
   title: string;
 }
@@ -23,6 +25,10 @@ const { title } = Astro.props;
     <main>
       <div class="container h-full mx-auto flex justify-center items-center">
         <div class="space-y-10 flex flex-col pt-40 max-w-3xl">
+          <a href="/">
+            <h1 class="text-5xl md:text-6xl font-semibold text-center">CSUF Courses</h1>
+          </a>
+          <SearchBar />
           <slot />
         </div>
       </div>
