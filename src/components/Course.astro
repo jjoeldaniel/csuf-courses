@@ -1,6 +1,5 @@
 ---
 async function getCourseData(course: string) {
-  console.log(`${base}/${course}`);
   const res = await fetch(`${base}/${course}`);
   const data = await res.json();
 
@@ -18,7 +17,7 @@ async function getCourseData(course: string) {
 
 const { query } = Astro.props;
 
-const base = "https://csuf-courses-backend.vercel.app/api/course/";
+const base = "https://csuf-courses-backend.vercel.app/api/course";
 const course = await getCourseData(query);
 ---
 
